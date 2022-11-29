@@ -4,6 +4,7 @@ pipeline {
            stage ("tomcat buid") {
               steps {
                       sh 'mvn package'
+		      sh 'sudo sleep 3'
 		      sh 'ls'
                       echo "your package is built"
               }
