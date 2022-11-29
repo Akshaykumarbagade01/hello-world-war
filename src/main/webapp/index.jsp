@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Welcome to Akshay_Blogs!</title>
+<title>Welcome to AB_Blogs</title>
 </head>
 <body>
 	<h1>Puneeth Rajkumar Bio...</h1>
