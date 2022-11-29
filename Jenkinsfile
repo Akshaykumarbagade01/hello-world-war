@@ -3,7 +3,8 @@ pipeline {
       stages {
            stage ("tomcat buid") {
               steps {
-                      sh 'mvn package'
+                      sh 'rm -rf tomcat_build_dip_from github_on_single_node"
+		      sh 'mvn package'
 		      sh 'ls'
               }
            }
