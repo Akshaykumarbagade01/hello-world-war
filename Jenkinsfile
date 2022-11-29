@@ -1,10 +1,10 @@
 pipeline {
-  agnet {lablel "slave_server1"}
+  agent {label "slave_server1"}
       stages {
            stage ("tomcat buid") {
               steps {
                       sh 'mvn package'
-					            sh 'ls'
+		      sh 'ls'
                       echo "your package is built"
               }
            }
