@@ -4,9 +4,7 @@ pipeline {
            stage ("tomcat buid") {
               steps {
                       sh 'mvn package'
-		      sh 'sleep 3'
 		      sh 'ls'
-                      echo "your package is built"
               }
            }
            stage ("tomcat diploy")  {
