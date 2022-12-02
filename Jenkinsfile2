@@ -1,0 +1,29 @@
+pipeline {
+	agent none
+        stages {
+           stage ("Tomcat Build & Deploy in Jfrog") {
+	          agent {label "slave_server1"}
+              steps {
+			                sh "echo ${BUILD_NUMBER}"
+                      sh 'sudo mvn deploy'
+		                  sh 'pwd'
+		                  echo "sucessfully Built and copied to JFrog Artifactory"
+	            }
+	         }
+	         stage ('diploy in node2') {
+	          agent {label "slave_server2"}
+	   	        steps {
+				              sh 'pwd'                   
+                      sh 'whoami'
+				              sh 'curl -u akshaykuamrbagade18@gmail:devops@akshay03 -O https://akshaybagde.jfrog.io/artifactory/libs-release-local/com/efsavage/hello-world-war/${BUILD_NUMBER}/hello-world-war-${BUILD_NUMBER}.war'
+				              sh 'pwd'
+				              sh 'sudo cp -R hello-world-war-${BUILD_NUMBER}.war /opt/tomcat/webapps'
+                      sh 'sudo sh /opt/tomcat/bin/shutdown.sh'
+				              sh 'sleep 4'
+				              sh 'sudo sh /opt/tomcat/bin/startup.sh'
+                      echo "diployment is sucessfull"
+                      echo "copy the public ip of instace and open it in browser with port:8090"
+		          }
+	         } 	   
+        }
+}
