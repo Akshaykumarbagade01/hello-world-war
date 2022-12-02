@@ -6,6 +6,7 @@ pipeline {
       steps {
         sh 'sudo mvn deploy'
         sh 'pwd'
+        echo "deploy_done"
       }
     }
     stage ('Deploy') {
