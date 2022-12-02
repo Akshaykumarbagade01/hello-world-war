@@ -3,7 +3,7 @@
 <title>Welcome to AB_Blogs</title>
 </head>
 <body>
-	<h1>Puneeth Rajkumar Bio...</h1>
+	<h1> Person behind the Personality </h1>
 	<h2> Dr.Puneeth Rajkumar (17 March 1975 – ∞), colloquially known as Appu </h2>
 	<h2> He was one of the most popular actors in Kannada cinema </h2>
 	<h2> He was the lead in 30 films; as a child, he appeared in many films. He won the National Film Award for Best Child Artist for his role of Ramu in Bettada Hoovu </h2>
