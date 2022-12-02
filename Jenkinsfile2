@@ -2,14 +2,14 @@ pipeline {
   agent none
   stages {
     stage ('Build') {
-      agent { label 'slave_server1' }
+      agent { label 'slave_server2' }
       steps {
         sh 'sudo mvn deploy'
         sh 'pwd'
       }
     }
     stage ('Deploy') {
-      agent { label 'slave_server2' }
+      agent { label 'slave_server1' }
       steps {
         sh 'pwd'
         sh 'whoami'
