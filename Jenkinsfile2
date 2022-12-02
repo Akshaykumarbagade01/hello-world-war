@@ -4,6 +4,7 @@ pipeline {
     stage ('Build') {
       agent { label 'slave_server2' }
       steps {
+        sh "echo ${BUILD_NUMBER}"
         sh 'sudo mvn deploy'
         sh 'pwd'
         echo "deploy_done"
@@ -12,11 +13,9 @@ pipeline {
     stage ('Deploy') {
       agent { label 'slave_server1' }
       steps {
-        sh 'pwd'
-        sh 'whoami'
         sh 'sudo chmod -R 777 /opt/'
-        sh 'curl -u akshaykumarbagade18@gmail.com:Devops@akshay03 -O https://akshaybagde.jfrog.io/artifactory/libs-release-local/com/efsavage/hello-world-war/${BUILD_VERSION}/hello-world-war-${BUILD_VERSION}.war'
-        sh 'sudo cp -R hello-world-war-${BUILD_VERSION}.war /opt/tomcat/webapps/'
+        sh 'curl -u akshaykumarbagade18@gmail.com:Devops@akshay03 -O https://akshaybagde.jfrog.io/artifactory/libs-release-local/com/efsavage/hello-world-war/${BUILD_NUMBER}/hello-world-war-${BUILD_NUMBER}.war'
+        sh 'sudo cp -R hello-world-war-${BUILD_NUMBER}.war /opt/tomcat/webapps/'
         sh 'sudo sh /opt/tomcat/bin/shutdown.sh'
         sh 'sleep 3'
         sh 'sudo sh /opt/tomcat/bin/startup.sh'
